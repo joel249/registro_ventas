@@ -18,6 +18,28 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("BD", "Base de datos conectada")
 
+        val cursor = db.rawQuery("SELECT * FROM ventas", null)
+        while (cursor.moveToNext()) {
+
+            val codigo = cursor.getString(cursor.getColumnIndexOrThrow("codigo"))
+
+            val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
+
+            val precio = cursor.getDouble(cursor.getColumnIndexOrThrow("precio"))
+
+            val cantidad = cursor.getInt(cursor.getColumnIndexOrThrow("cantidad"))
+
+            val tipo = cursor.getString(cursor.getColumnIndexOrThrow("tipo"))
+
+            val fechaVenta = cursor.getString(cursor.getColumnIndexOrThrow("fecha_venta"))
+
+            Log.d(
+                "VENTAS",
+                "Código: $codigo | Nombre: $nombre | Precio: $precio | Cantidad: $cantidad | Tipo: $tipo | Fecha: $fechaVenta"
+            )
+
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android_SQLite</string>
+    <string name="titulo_ventas">Ventas</string>
 </resources>
