@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
+
 class DatabaseHelper(private val context: Context) : SQLiteOpenHelper(
     context,
     "ventas.db",
